@@ -56,6 +56,7 @@ XiaoZhiAPP
 │   ├── my-prompt-template.txt          # 示例提示词
 │   ├── knowledge/                      # RAG 知识库文档
 │   └── mapper/                         # Mapper XML
+├── xiaozhi-ui/                         # Vue 3 + Vite 聊天前端
 └── pom.xml
 ```
 
@@ -131,6 +132,20 @@ java -jar target/XiaoZhiAPP-0.0.1-SNAPSHOT.jar
 
 - 服务地址：`http://localhost:8080`
 - 接口文档：`http://localhost:8080/doc.html`
+
+### 5. 启动前端
+
+Vue 前端位于 [`xiaozhi-ui/`](xiaozhi-ui/README.md)，建议使用 Node.js 20 或更新版本。在仓库根目录执行：
+
+```bash
+cd xiaozhi-ui
+npm ci
+npm run dev
+```
+
+打开终端显示的地址（默认 `http://localhost:5173`）。开发代理会将 `/api/xiaozhi/chat` 转发到 `http://localhost:8080/xiaozhi/chat`，因此需要先启动后端。
+
+在 `xiaozhi-ui` 目录运行 `npm run build` 可生成 `dist/`。生产部署的接口代理配置见[前端说明](xiaozhi-ui/README.md)。
 
 ## 接口说明
 
